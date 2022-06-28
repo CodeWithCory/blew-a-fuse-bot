@@ -9,6 +9,8 @@ Twitter bot @BlewAFuse
 
 ## Continuous development
 
+* Use `uvicorn main:app --reload` to run the server
+
 ### Package Management
 
 * Install new packages using `pip install packagename`
