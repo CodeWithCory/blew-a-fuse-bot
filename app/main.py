@@ -15,10 +15,10 @@ TWITTER_ACCESS_TOKEN_SECRET = getenv("TWITTER_ACCESS_TOKEN_SECRET")
 
 # Database
 # IP Address must be allowed at https://cloud.mongodb.com/ -> Network Access
-client = MongoClient(f"mongodb+srv://corylr:{MONGODB_PASSWORD}@cluster0.uxodstt.mongodb.net/?retryWrites=true&w=majority")
-blew_a_fuse_db = client.get_database("blewafuse")
-test_collection = blew_a_fuse_db.get_collection("test")
-first_document = test_collection.find_one({"hello": "world"})
+# client = MongoClient(f"mongodb+srv://corylr:{MONGODB_PASSWORD}@cluster0.uxodstt.mongodb.net/?retryWrites=true&w=majority")
+# blew_a_fuse_db = client.get_database("blewafuse")
+# test_collection = blew_a_fuse_db.get_collection("test")
+# first_document = test_collection.find_one({"hello": "world"})
 
 # Twitter
 auth=tweepy.OAuthHandler(TWITTER_CONSUMER_API_KEY, TWITTER_CONSUMER_API_KEY_SECRET)
@@ -28,6 +28,6 @@ bot_api=tweepy.API(auth)
 
 # Server
 app = FastAPI()
-@app.get("/")
-async def root():
-  return {"hello": first_document["hello"]} # Expect value "world" from database
+# @app.get("/")
+# async def root():
+#   return {"hello": first_document["hello"]} # Expect value "world" from database

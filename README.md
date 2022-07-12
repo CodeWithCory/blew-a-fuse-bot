@@ -4,17 +4,20 @@ Twitter bot @BlewAFuse
 
 ## Setup
 
-### 1) Dependencies
+Dependencies
+
 * Install dependencies with `pip install -r requirements.txt`
 * Run `source venv/bin/activate` to activate the local python environment in your terminal
 
-### 2) Keys
+Keys
 
 * Create `.env` file by copying and renaming the `.env-template` and filling in the appropriate fields
 
 ## Continuous development
 
-* Use `uvicorn main:app --reload` to run the server
+* Run `source venv/bin/activate` to activate the local python environment in your terminal
+* Use `uvicorn app.main:app --reload` to run the server
+* All-in-one startup: `source venv/bin/activate && uvicorn app.main:app --reload`
 
 ### Package Management
 
