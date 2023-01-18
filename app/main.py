@@ -23,8 +23,17 @@ TWITTER_ACCESS_TOKEN_SECRET = getenv("TWITTER_ACCESS_TOKEN_SECRET")
 # Twitter
 auth=tweepy.OAuthHandler(TWITTER_CONSUMER_API_KEY, TWITTER_CONSUMER_API_KEY_SECRET)
 auth.set_access_token(TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_TOKEN_SECRET)
-bot_api=tweepy.API(auth)
+# bot_api=tweepy.API(auth)
 # bot_api.update_status('Hello, world!')
+
+# Listen for mentions and react
+class MyStreamListener(tweepy.StreamListener):
+    def on_status(self, status):
+        print(status.text)
+myStreamListener = MyStreamListener()
+myStream = tweepy.Stream(auth = auth, listener=myStreamListener)
+myStream.filter(follow=["1541247183919382528"])
+myStream.filter(track=["@username"])
 
 # Server
 app = FastAPI()
